@@ -34,6 +34,7 @@ class DoorEntity extends me.Collectable {
         if(game.data.haskey == true){
             game.data.level += 1;
             if(game.data.level == 1){game.data.haskey = false;}
+            if(game.data.level == 3){game.data.level = 0;}
             me.level.load("map"+game.data.level);
         }
 

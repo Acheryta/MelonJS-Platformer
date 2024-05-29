@@ -72,33 +72,6 @@
                  "width":35,
                  "x":281.666666666667,
                  "y":1865
-                }, 
-                {
-                 "height":100,
-                 "id":109,
-                 "name":"me.Trigger",
-                 "properties":[
-                        {
-                         "name":"duration",
-                         "type":"string",
-                         "value":"150"
-                        }, 
-                        {
-                         "name":"fade",
-                         "type":"string",
-                         "value":"#fff"
-                        }, 
-                        {
-                         "name":"to",
-                         "type":"string",
-                         "value":"map0"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":50,
-                 "x":221,
-                 "y":73.3333333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -266,6 +239,17 @@
                  "width":35,
                  "x":32.5,
                  "y":1300.5
+                }, 
+                {
+                 "height":105,
+                 "id":111,
+                 "name":"DoorEntity",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":67,
+                 "x":211.5,
+                 "y":69
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -875,7 +859,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":110,
+ "nextobjectid":112,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",

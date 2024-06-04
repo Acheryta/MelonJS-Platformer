@@ -30,7 +30,8 @@ class DoorEntity extends me.Collectable {
 
         // do something when collide
         // me.audio.play("cling", false);
-        // give some score
+        
+        // get to next map
         if(game.data.haskey == true){
             game.data.level += 1;
             if(game.data.level == 1){game.data.haskey = false;}
@@ -38,10 +39,6 @@ class DoorEntity extends me.Collectable {
             me.level.load("map"+game.data.level);
         }
 
-        //avoid further collision
-        // this.body.setCollisionMask(me.collision.types.NO_OBJECT);
-
-        // me.game.world.removeChild(this);
 
         return false;
     }

@@ -30,7 +30,7 @@ class HeartEntity extends me.Collectable {
 
         // do something when collide
         me.audio.play("cling", false);
-        // give some score
+        // give some health if not full
         if(game.data.health < 3){
             game.data.health += 1;
         }

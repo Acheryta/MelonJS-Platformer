@@ -45,7 +45,7 @@ class FSControl extends me.UISpriteElement {
 };
 
 /**
- * a basic control to toggle fullscreen on/off
+ * a basic control to toggle audio on/off
  */
 class AudioControl extends me.UISpriteElement {
     /**
@@ -155,7 +155,7 @@ class Health extends me.UISpriteElement {
 
         this.floating = false;
 
-        // local copy of the global score
+        // local copy of the global health
         this.health = 3;
 
         // recalculate the object position if the canvas is resize

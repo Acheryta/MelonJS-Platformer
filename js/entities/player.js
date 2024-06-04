@@ -16,6 +16,7 @@ class PlayerEntity extends me.Entity {
         this.body.setMaxVelocity(4, 18);
         this.body.setFriction(0.4, 0);
 
+        // some helpful paremeter
         this.dying = false;
         this.multipleJump = 1;
 
@@ -38,9 +39,9 @@ class PlayerEntity extends me.Entity {
         me.input.bindKey(me.input.KEY.W,     "jump", true);
         me.input.bindKey(me.input.KEY.S,     "down");
         
-        me.input.bindKey(me.input.KEY.J,     "attack");
+        me.input.bindKey(me.input.KEY.J,     "attack"); // not done but can use
 
-        me.input.bindKey(me.input.KEY.N,     "next-level");
+        me.input.bindKey(me.input.KEY.N,     "next-level"); 
         //me.input.registerPointerEvent("pointerdown", this, this.onCollision.bind(this));
         //me.input.bindPointer(me.input.pointer.RIGHT, me.input.KEY.LEFT);
 
@@ -84,6 +85,7 @@ class PlayerEntity extends me.Entity {
      ** update the force applied
      */
     update(dt) {
+        // counter for invulnerable time
         if(this.ishurt == true) {
             this.count += 1;
             if(this.count == 50){
@@ -130,29 +132,6 @@ class PlayerEntity extends me.Entity {
                 me.level.load("map"+game.data.level);
             }
         }
-        // if (me.input.isKeyPressed("jump")) {
-        //     this.renderable.setCurrentAnimation("jump");
-        //     this.body.jumping = true;
-        //     if (this.multipleJump < 2) {
-        //         // easy "math" for double jump
-        //         this.body.force.y = -this.body.maxVel.y;
-        //         this.multipleJump += 1;
-        //         console.log(this.multipleJump)
-        //         me.audio.stop("jump");
-        //         me.audio.play("jump", false);
-        //     }
-        // } else {
-        //     if (!this.body.falling && !this.body.jumping) {
-        //         // reset the multipleJump flag if on the ground
-        //         console.log(this.multipleJump)
-        //         this.multipleJump = 0;
-        //     }
-        //     else if (this.body.falling && this.multipleJump < 2) {
-        //         // reset the multipleJump flag if falling
-        //         this.multipleJump = 2;
-        //     }
-        // }
-
         
         if (this.body.force.x === 0 && this.body.force.y === 0) {
             this.renderable.setCurrentAnimation("stand");
@@ -161,6 +140,7 @@ class PlayerEntity extends me.Entity {
             this.renderable.setCurrentAnimation("attack");
             this.doAttack();
         }
+
         // check if we fell into a hole or no more life
         if ((!this.inViewport && (this.getBounds().top > me.video.renderer.height)) || game.data.health == 0) {
             // if yes reset the game
@@ -283,20 +263,22 @@ class PlayerEntity extends me.Entity {
             me.audio.play("die", false);
         }
     }
-
+    /**
+     * Attack!!!
+     */
+    // not done but can use
     doAttack(){
         const attackSettings = {
-            width: 50, // Chiều rộng của thực thể tấn công
-            height: 50, // Chiều cao của thực thể tấn công
-            velX: this.renderable.flipX ? -5 : 5, // Vận tốc theo trục x tùy thuộc vào hướng của người chơi
-            velY: 0 // Vận tốc theo trục y
-            // Các thuộc tính khác nếu cần
+            width: 50,
+            height: 50,
+            velX: this.renderable.flipX ? -5 : 5,
+            velY: 0
         };
-        // Lấy vị trí hiện tại của người chơi
+        // player pos
         const x = this.pos.x + (this.renderable.flipX ? + 2*attackSettings.width : this.width);
         const y = this.pos.y+60;
         let attack = me.pool.pull("AttackEntity", x, y, attackSettings);
-        // attack.reset(x, y, attackSettings); // Đặt lại thực thể tấn công
+        // attack.reset(x, y, attackSettings);
         me.game.world.addChild(attack);
     }
 };

@@ -37,7 +37,7 @@ export default function onload() {
     // set all ressources to be loaded
     me.loader.preload(resources, () => {
 
-        // set the "Play/Ingame" Screen Object
+        // set the "Play/Ingame" and "Menu/Title" Screen Object
         me.state.set(me.state.PLAY, new PlayScreen());
         me.state.set(me.state.TITLE, new TitleScreen());
         // set the fade transition effect
@@ -51,7 +51,7 @@ export default function onload() {
         me.pool.register("HeartEntity", HeartEntity, true);
         me.pool.register("DoorEntity", DoorEntity, true);
         me.pool.register("KeyEntity", KeyEntity, true);
-        me.pool.register("AttackEntity", AttackEntity, true);
+        me.pool.register("AttackEntity", AttackEntity, true); //not done
         // load the texture atlas file
         // this will be used by renderable object later
         game.texture = new me.TextureAtlas(
@@ -81,7 +81,7 @@ export default function onload() {
             }
         });
 
-        // switch to PLAY state
+        // switch to TITLE state
         me.state.change(me.state.TITLE);
     });
 }

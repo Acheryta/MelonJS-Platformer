@@ -30,7 +30,7 @@ class KeyEntity extends me.Collectable {
 
         // do something when collide
         me.audio.play("cling", false);
-        // give some score
+        // update data
         game.data.haskey = true;
 
         //avoid further collision and delete it
